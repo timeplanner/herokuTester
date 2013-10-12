@@ -1,4 +1,4 @@
-var postPoints = {
+var gon.postPoints = {
     "fuzhou":{"ll":	"26.0761° N, 119.3064° E",
         "country":"China",
         "audio":"\<audio controls autoplay style=\"display:none\"><source src=\"audio/irene.mp3\" type=\"audio/mpeg\"></audio>",
@@ -14,30 +14,4 @@ var postPoints = {
     "India"	:{"ll":"21.0000° N, 78.0000° E","country":"","audio":"\<audio controls autoplay style=\"display:none\"><source src=\"audio/ashwin.mp3\" type=\"audio/mpeg\"></audio>","name":"Ashwin","video":"","comment":"Merchants in modern society","likes":"","dislikes":""}
 
 };
-
-<%@posts = Post.all %>
-    <%@posts.each do |post|%>
-    <% target = Geocoder.search(post.location) %>
-    <%if (target[0].latitude > 0 )         %>
-    <%northSouth = "N"                  %>
-    <%else                                 %>
-    <%  northSouth = "S"                 %>
-    <%end%>
-
-    <%if (target[0].longitude > 0 )        %>
-    <% eastWest = "E"                   %>
-    <%else                                 %>
-    <%  eastWest = "W"                   %>
-    <%end%>
-    <%ll = target[0].latitude.to_s() + " " + northSouth + " " + target[0].longitude.to_s()  + " " + eastWest %>
-
-    postPoints["<%=post.location%>"]={"ll": "<%=ll%>" ,
-        "country":"" ,
-        "audio":"<%=post.audio%>" ,
-        "name":"<%=post.user.name%>" ,
-        "video":"<%=post.video%>" ,
-        "comment":"<%=post.comment%>",
-        "like":"" ,
-        "dislike": ""  };
-
-<%end%>
+console.log(gon.postPoints)

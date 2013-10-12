@@ -133,7 +133,7 @@ $(document).ready(function()
     };
 
 
-    for (var point in postPoints) {
+    for (var point in gon.postPoints) {
         (function(point,pointName){
             var attr = paper.parseLatLon(point["ll"]);
             attr.r = 0;
@@ -154,7 +154,7 @@ $(document).ready(function()
 //                dot.animate({fill: "r#FE7727:50-#F57124:100", stroke: "#fff"}, 300);
 //                paper.safari();
 //            };
-        })(postPoints[point],point);
+        })(gon.postPoints[point],point);
     };
 
     $("circle").each(function () {
@@ -162,8 +162,8 @@ $(document).ready(function()
         //.html() won't work.
        var pointPin = $(this).children('title').text();
 
-       var title_placeHolder = postPoints[pointPin]["name"],
-           content_placeHolder = postPoints[pointPin]["comment"] + postPoints[pointPin]["audio"] + postPoints[pointPin]["video"];
+       var title_placeHolder = gon.postPoints[pointPin]["name"],
+           content_placeHolder = gon.postPoints[pointPin]["comment"] + gon.postPoints[pointPin]["audio"] + gon.postPoints[pointPin]["video"];
         title_placeHolder = title_placeHolder +  '\<a class=\'close\'>×</a>' ;
        $(this).popover({html:true, trigger:'manual', placement:'left', title:title_placeHolder, content:content_placeHolder});
     });
@@ -171,8 +171,8 @@ $(document).ready(function()
     $('circle').click(function (e) {
        $(this).popover('show');
        var pointPin = $(this).children('title').text();
-       var title_placeHolder = postPoints[pointPin]["name"],
-           content_placeHolder = postPoints[pointPin]["comment"];
+       var title_placeHolder = gon.postPoints[pointPin]["name"],
+           content_placeHolder = gon.postPoints[pointPin]["comment"];
         e.stopPropagation();
     });
 
