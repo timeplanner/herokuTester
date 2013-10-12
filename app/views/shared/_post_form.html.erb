@@ -14,15 +14,28 @@
       <div class="modal-body">
         <%= form_for(@post) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
-            <div class="field">
-              <%= f.text_area :comment, placeholder: "Compose new post..." %>
-            </div>
-            <%= f.submit "Post", class: "btn btn-large btn-primary" %>
-        <% end %>
+            <%= label_tag 'location', 'Your city' %>
+
+            <!--<div class="cityInput">ajax</div>-->
+
+            <!--<%= button_to "check", :action => 'checkLocation', remote: true %>-->
+            <%= f.text_field :location, value: @city %>
+
+            <%= label_tag 'audio', 'Audio URL' %>
+            <%= f.text_field :audio, placeholder: "Youtube audio URL or others.Less than 1 minute.." %>
+
+            <%= label_tag 'video', 'Video URL' %>
+            <%= f.text_field :video, placeholder: "Youtube video URL or others..." %>
+
+            <%= label_tag 'comment', 'Comment' %>
+            <%= f.text_area :comment, placeholder: "Comment.Less than 140 letters..." %>
+
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-large btn-primary" data-dismiss="modal">Close</button>
+            <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+        <% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

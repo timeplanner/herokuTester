@@ -24,8 +24,5 @@
     <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 <% end %>
 
-<% s = Geocoder.search("wpi")%>
-<%= s[0].address %>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=16&markers=#{s[0].latitude}%2C#{s[0].longitude}" %>
 
 <div class="mousePose"></div>

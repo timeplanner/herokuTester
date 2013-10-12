@@ -1,5 +1,12 @@
-<li>
+<li xmlns="http://www.w3.org/1999/html">
+  <span class="location"><%= post.location %></span></br>
+
+  <span class="audio"><%= post.audio %></span></br>
+
+  <span class="video"><%= post.video %></span></br>
+
   <span class="comment"><%= post.comment %></span>
+
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
