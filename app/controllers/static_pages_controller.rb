@@ -47,19 +47,21 @@ class StaticPagesController < ApplicationController
         eastWest = "W"
       end
       ll = target[0].latitude.to_s() + " " + northSouth + " " + target[0].longitude.to_s()  + " " + eastWest
-      youtube = "\<embed width='200' height='200' src='https:#{post.video}?autoplay=1' hidden='false' autoplay='ture'></embed>"
+      youtubeVideo = "\<embed width='200' height='200' src='https:#{post.video}?autoplay=1' hidden='false' autoplay='ture'></embed>"
+      youtubeAudio = "\<audio controls='' autoplay='' style='display:none'><source src='http:#{post.audio}' type='audio/mpeg'></audio>"
 
       postPoints["#{post.location}"]={"ll"=> ll ,
                                       "country"=> "" ,
-                                      "audio"=> post.audio ,
+                                      "audio"=> youtubeAudio ,
                                       "name"=> post.user.name ,
-                                      "video"=> youtube ,
+                                      "video"=> youtubeVideo ,
                                       "comment"=> post.comment,
                                       "like"=> "" ,
                                       "dislike"=> ""  }
 
 
-      end
+    end
+
 
 
     gon.postPoints = postPoints
