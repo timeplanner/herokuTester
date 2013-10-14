@@ -12,13 +12,11 @@
         <h4 class="modal-title">New post</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(@post) do |f| %>
+        <%= form_for @post, :remote => true do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
             <%= label_tag 'location', 'Your city' %>
 
             <!--<div class="cityInput">ajax</div>-->
-
-            <!--<%= button_to "check", :action => 'checkLocation', remote: true %>-->
             <%= f.text_field :location, value: @city %>
 
             <%= label_tag 'audio', 'Audio URL' %>

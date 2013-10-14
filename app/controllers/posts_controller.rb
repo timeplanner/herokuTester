@@ -4,15 +4,19 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(params[:post])
-    if Geocoder.search(@post.location).respond_to?"address"
-      @post.location =( Geocoder.search(@post.location))[0].address
-    end
-    if @post.save
-      flash[:success] = "Post created!"
-      redirect_to root_url
+    @searchResult = Geocoder.search(@post.location)
+    if @searchResult[0] == nil
+       #TODO
+       @post.save
     else
-      render 'static_pages/home'
+      if @post.save
+        flash[:success] = "Post created!"
+      else
+      end
+
+      @post.location = @searchResult[0].address
     end
+
   end
 
   def destroy
@@ -20,6 +24,12 @@ class PostsController < ApplicationController
     redirect_to root_url
 
   end
+
+  def checkLocation
+    puts "----checkLocation-----------------------------"
+  end
+
+
 
   private
 

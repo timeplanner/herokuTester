@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20131012005748) do
 
   create_table "posts", :force => true do |t|
     t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "audio"
     t.string   "video"
     t.string   "comment"

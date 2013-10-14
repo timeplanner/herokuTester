@@ -16,6 +16,11 @@ SampleApp1::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/checkLocation', to: 'static_pages#checkLocation'
 
+  resources :posts do
+    collection do
+      get 'checkLocation'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

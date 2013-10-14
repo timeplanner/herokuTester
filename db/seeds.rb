@@ -25,9 +25,11 @@ end
 
 posts = [
     { location:"zhang jiakou",
+      latitude:40.824418,
+      longitude:114.887543,
       audio: "//www.recordmp3.org/fHEhI.mp3",
       video: "//www.youtube.com/embed/DSbtkLA3GrY",
-      comment:"interesting hit pop!"
+      comment:"Interesting hit pop!"
     }]
 
 posts.each do |post|
